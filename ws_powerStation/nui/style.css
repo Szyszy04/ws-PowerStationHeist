@@ -1,0 +1,294 @@
+@font-face {
+  font-family: IBMPlexSans;
+  src: url(IBMPlexSans-Regular.ttf);
+}
+
+*{
+  margin: 0px;
+  padding: 0px;
+}
+html, body{
+  width: 100%;
+  height: 100%;
+}
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Notification.js */
+.conteinerNotification p{
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: #161719;
+  color: #FFFFFF;
+  font-family: sans-serif;
+  font-weight: 600;
+  border-radius: 10px;
+  padding: 1rem;
+  font-size: large;
+  box-shadow: 0px 0px 4px 1px rgb(9, 153, 250);;
+}
+
+/* Cabels.js */
+.conteinerCabels{
+  width: 30rem;
+  height: 40rem;
+  background: #161719;
+}
+.cabelSymbol, .cabelEnd{
+  font-family: cursive;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+}
+.cabelSymbol{
+  font-size: 10rem;
+}
+.cabelEnd{
+  font-size: 3.5rem;
+}
+.cabelGame{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+.cabelMain{
+  height: 40rem;
+  width: 3rem;
+  background-color: #38393C;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cabelMain::before{
+  content: "";
+  position: absolute;
+  height: 34rem;
+  width: 3rem;
+  background: #161719;
+}
+.cabelBg{
+  height: 34rem;
+  width: 3rem;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.cabelTop, .cabelBottom{
+  width: 1rem;
+  height: 50%;
+}
+.cabelMain:nth-child(1) .cabelBg .cabelTop, .cabelMain:nth-child(1) .cabelBg .cabelBottom {
+  background-color: rgb(9, 153, 250);
+}
+.cabelMain:nth-child(2) .cabelBg .cabelTop, .cabelMain:nth-child(2) .cabelBg .cabelBottom {
+  background-color: rgb(255, 255, 255);
+}
+.cabelMain:nth-child(3) .cabelBg .cabelTop, .cabelMain:nth-child(3) .cabelBg .cabelBottom {
+  background-color: rgb(9, 153, 250);
+}
+.cabelMain:nth-child(4) .cabelBg .cabelTop, .cabelMain:nth-child(4) .cabelBg .cabelBottom {
+  background-color: rgb(255, 255, 255);
+}
+.disable {
+  background: transparent !important;
+}
+.hide {
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Spamming.js */
+.conteinerSpamming{
+  width: 24rem;
+  height: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  position: relative;
+  bottom: -18rem;
+}
+.conteinerSpamming p{
+  font-family: cursive;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  position: absolute;
+  top: -5rem;
+  font-size: larger;
+}
+.mainSpamming{
+  width: 100%;
+  height: 2rem;
+  background: #161719;
+  position: relative;
+}
+.mainSpamming::before{
+  content: "";
+  position: absolute;
+  background:  #02c0f0;;
+  width: 12%;
+  height: 100%;
+  right: 0;
+  border-left: dashed 2px  #02c0f0;;
+}
+.userSpamming{
+  height: 2rem;
+  background-color:  #242525;;
+  transition: 0.1s;
+}
+
+/* hackGame.js */
+
+#conteinerHack {
+  font-family: IBMPlexSans;
+  padding: 0 0.8rem 0 0.8rem;
+  width: auto;
+  height: 7rem; 
+  border-radius: 0.3125rem; 
+  background: #161719;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-items: stretch;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.pierwszy {
+  margin-top: 2.5rem; 
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.pierwszTekst, .showWin, .showLoss {
+  text-align: center;
+  color: #FFFDFD;
+  font-weight: 600;
+  font-size: 1rem; 
+  line-height: 1.3rem; 
+  font-family: IBMPlexSans;
+}
+
+.input {
+  display: flex;
+}
+
+.progress {
+  display: flex;
+  align-items: center;
+  width: auto;
+  justify-content: space-between;
+}
+
+.progressBar, .progressBar2, .endGame {
+  overflow: hidden;
+  height: 0.5rem;
+  margin-bottom: 0.4rem;
+  background: #3E3E3E;
+  width: 97%;
+  min-width: 23.75rem; 
+  border-radius: 0.3125rem; 
+}
+
+.element {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.part {
+  display: flex;
+  height: 5rem; 
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.progressBar .bar, .progressBar2 .bar, .endGame .bar {
+  height: 0.5rem;
+  border-radius: 0.3125rem; 
+  animation: roundtime calc(var(--duration) * 1s) linear forwards;
+  transform-origin: left center;
+  background-color: #FFFDFD;
+}
+
+.letter {
+  background-color: rgb(9, 153, 250);;
+  box-shadow: 0px 0.25rem 0px 0px rgb(9, 153, 250);; 
+  width: 1.875rem; 
+  height: 2.1875rem; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.125rem; 
+  margin: 0.3125rem; 
+  font-weight: 400;
+  line-height: 1.4625rem; 
+  border-radius: 0.125rem; 
+  color: #FFFDFD;
+}
+
+.circle.active {
+  border: 0.0625rem solid #FFFDFD; 
+}
+
+.line.active {
+  background-color: #FFFDFD;
+}
+
+.circle.active .disable {
+  display: block !important;
+}
+
+.circle {
+  width: 1.125rem; 
+  height: 1.125rem; 
+  border-radius: 50%;
+  background-color: transparent;
+  border: 0.0625rem solid #3E3E3E; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.line {
+  height: 0.0625rem; 
+  width: 1rem; 
+  background-color: #3E3E3E;
+}
+
+.correct {
+  background-color: rgb(9, 153, 250);;
+  box-shadow: 0px 0.25rem 0px 0px rgb(9, 153, 250);; 
+  color: #FFFDFD;
+}
+
+.disable {
+  display: none;
+}
+
+@keyframes roundtime {
+  to {
+    transform: scaleX(0);
+  }
+}

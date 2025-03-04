@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="hackGame.js"></script>
+  <script src="instruction.js"></script>
+  <script src="cables.js"></script>
+  <script src="spamming.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app" data-v-app=""></div>
+  <script>
+    let currentApp = null;
+    let currentInstance = null;
+  
+    function createAppInstance(app) {
+      return Vue.createApp(app);
+    }
+  
+    function switchApp(newApp) {
+      if (currentApp === newApp) {
+        return;
+      }
+  
+      if (currentApp) {
+        currentApp.unmount();
+      }
+  
+      currentApp = createAppInstance(newApp);
+      currentInstance = currentApp.mount('#app');
+    }
+  
+    window.addEventListener("message", event => {
+      const { type, status, instruction, text, newTime, numberElements, removePer, percentPerClick } = event.data;
+ 
+      switch (type) {
+        case "sendHackGame":
+          switchApp(appHackGame);
+          if (currentInstance && currentInstance.displayHackGame) {
+            currentInstance.displayHackGame(status);
+            currentInstance.updateData(newTime, numberElements);
+          }
+          break;
+  
+        case "showSheetContent":
+          switchApp(appInstruction);
+          if (currentInstance) {
+            currentInstance.display(status);
+            currentInstance.receiveInstruction(instruction);
+          }
+          break;
+  
+        case "sendCabels":
+          switchApp(appCabels);
+          if (currentInstance) {
+            currentInstance.displayCabels(status);
+            currentInstance.startGameCabels(instruction);
+          }
+          break;
+  
+        case "sendSpamming":
+          switchApp(appSpamming);
+          if (currentInstance && currentInstance.displaySpamming) {
+              currentInstance.displaySpamming(status);
+              currentInstance.updateDataSpamming(removePer, percentPerClick);
+          }
+          break;
+
+        case "resetDataNUI":
+          if (currentApp) {
+            currentApp.unmount();
+          }
+        break;
+      }
+    });
+  </script>
+</body>
+</html>

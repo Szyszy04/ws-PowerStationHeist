@@ -1,0 +1,7 @@
+Item('sheet', function(data, slot)
+    if slot.metadata and slot.metadata.content then
+        TriggerEvent('powerStationHeist:showSheetContent', slot.metadata.content)
+    else
+        lib.notify({type = 'error', description = 'This sheet is empty!'})
+    end
+end)

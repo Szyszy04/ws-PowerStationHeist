@@ -1,0 +1,12 @@
+	['sheet'] = {
+		label = 'Paper Sheet',
+		description = 'A sheet of paper with a message',
+		weight = 1,
+		degrade = 30,
+		decay = true,
+		stack = false,
+		close = true,
+		metadata = {
+			content = nil  
+		},
+	},
